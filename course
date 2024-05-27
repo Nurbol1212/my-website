@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #cccccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 10px 10px 0 0;
+            color: white;
+        }
+        .header img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .tab {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #cccccc;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .tab:hover {
+            background-color: #b3b3b3;
+        }
+        .tab-content {
+            margin-top: 20px;
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .topic-list {
+            list-style: none;
+            padding: 0;
+        }
+        .topic-list li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .topic-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .topic-list a {
+            text-decoration: none;
+            color: #007BFF;
+            transition: color 0.3s;
+        }
+        .topic-list a:hover {
+            color: #0056b3;
+        }
+    </style>
+    <script>
+        function showTabContent(event, tabId) {
+            var i, tabContent, tabs;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            tabs = document.getElementsByClassName("tab");
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].className = tabs[i].className.replace(" active", "");
+            }
+            document.getElementById(tabId).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the first tab as active
+            document.querySelector('.tab').classList.add('active');
+            document.querySelector('.tab-content').classList.add('active');
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="C:/Users/w2/Desktop/платформа/Nov-logo-eng.png" alt="ENU" onclick="window.location.href='index.html'" style="cursor: pointer;">
+    </div>
+    <div class="tabs">
+        <div class="tab" onclick="showTabContent(event, 'math')">Mathematics</div>
+        <div class="tab" onclick="showTabContent(event, 'informatics')">Computer Science</div>
+    </div>
+    <div id="math" class="tab-content">
+        <h2>Mathematics</h2>
+        <p>Mathematics is the study of numbers, shapes, and patterns. It is a fundamental science that underpins many other scientific disciplines. Topics covered include:</p>
+        <ul class="topic-list">
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/digit.mp4" target="_blank">Digit, natural numbers, integers</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/fractions.mp4" target="_blank">Types of fractions</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/degree.mp4" target="_blank">Degree</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/short-multiplication.mp4" target="_blank">Short multiplication formulas</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/module.mp4" target="_blank">The module</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/arithmetic-root.mp4" target="_blank">The arithmetic root</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/quadratic-equation.mp4" target="_blank">The quadratic equation</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/irrational-equations.mp4" target="_blank">Irrational equations</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/module-equations.mp4" target="_blank">Equations with the module symbol</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/system-equations.mp4" target="_blank">The system of equations</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/arithmetic-progression.mp4" target="_blank">Arithmetic progression</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/mixed-progression.mp4" target="_blank">Mixed Progression Tasks</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/reduction-formulas.mp4" target="_blank">Reduction formulas</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/trigonometric-functions.mp4" target="_blank">Reduction of trigonometric functions in sum and difference position to the form of a product</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/trigonometric-equalities.mp4" target="_blank">Basic trigonometric equalities</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/simple-trigonometric.mp4" target="_blank">Simple trigonometric equations</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/new-variable.mp4" target="_blank">A new method for entering variables</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/solving-trigonometric.mp4" target="_blank">Solving trigonometric equations using formulas</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/simple-trigonometric-inequalities.mp4" target="_blank">Simple trigonometric inequalities</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/new-variable-method.mp4" target="_blank">The method of introducing a new variable</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/system-inequalities.mp4" target="_blank">The system of inequalities</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/adjacent-corners.mp4" target="_blank">Adjacent corners</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/exponential-inequalities.mp4" target="_blank">Exponential inequalities</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/system-exponential-inequalities.mp4" target="_blank">The system of exponential inequalities</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/cosine-theorem.mp4" target="_blank">The cosine theorem</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/logarithmic-equations.mp4" target="_blank">Logarithmic equations</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/system-logarithmic-equations.mp4" target="_blank">The system of logarithmic equations</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/fractional-rational.mp4" target="_blank">Fractional rational function</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/odd-functions.mp4" target="_blank">Odd functions</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/function-graphs.mp4" target="_blank">Transformation of function graphs</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/critical-extreme-points.mp4" target="_blank">Critical and extreme points</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/definite-integral.mp4" target="_blank">A definite integral</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/similarity-triangles.mp4" target="_blank">Signs of similarity of triangles</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/rhombus.mp4" target="_blank">Rhombus, properties of a rhombus</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/squares.mp4" target="_blank">Squares</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/multiple-angles.mp4" target="_blank">Multiple angles</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/circles.mp4" target="_blank">Circles, an angle inscribed in a circle</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/perpendicular-slope.mp4" target="_blank">Perpendicular and slope</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/parallelepiped.mp4" target="_blank">Parallelepiped</a></li>
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/matem/vertical-cone.mp4" target="_blank">Vertical cone</a></li>
+        </ul>
+    </div>
+    <div id="informatics" class="tab-content">
+        <h2>Computer Science</h2>
+        <p>Computer Science is the study of computers and computational systems. It involves understanding the principles of computing, algorithm design, software development, and more.</p>
+        <p>Topics:</p>
+        <ul class="topic-list">
+            <li><input type="checkbox"><a href="file:///C:/Users/w2/Desktop/платформа/razbor%20inf.mp4" target="_blank">Variant Analysis</a></li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
