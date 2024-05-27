@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .header, .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #cccccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 10px 10px 0 0;
+            color: white;
+        }
+        .header img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .login-container, .register-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-container.active, .register-container.active {
+            display: flex;
+        }
+        .login-container input, .register-container input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-container button, .register-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .login-container button:hover, .register-container button:hover {
+            background-color: #45a049;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .faq, .course-card, .project-info {
+            margin-top: 20px;
+        }
+        .course-card {
+            cursor: pointer;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+            width: 50%; 
+            margin: 0 auto;
+        }
+        .course-card:hover {
+            transform: scale(1.05);
+            background-color: #4CAF50;
+            color: white;
+        }
+        .course-card img {
+            width: 200px; 
+            height: 200px; 
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        let users = {
+            "123456789": "qwertyuiop"
+        };
+
+        function login() {
+            const username = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+            if (users[username] && users[username] === password) {
+                document.getElementById("login-container").classList.remove("active");
+                document.getElementById("content").classList.add("active");
+            } else {
+                alert("Invalid login credentials!");
+            }
+        }
+
+        function register() {
+            const username = document.getElementById("register-username").value;
+            const password = document.getElementById("register-password").value;
+            if (username && password) {
+                users[username] = password;
+                alert("Registration successful! You can now log in.");
+                showLogin();
+            } else {
+                alert("Please enter valid details!");
+            }
+        }
+
+        function showLogin() {
+            document.getElementById("register-container").classList.remove("active");
+            document.getElementById("login-container").classList.add("active");
+        }
+
+        function showRegister() {
+            document.getElementById("login-container").classList.remove("active");
+            document.getElementById("register-container").classList.add("active");
+        }
+
+        function skipLogin() {
+            document.getElementById("login-container").classList.remove("active");
+            document.getElementById("content").classList.add("active");
+        }
+    </script>
+</head>
+<body>
+
+<!-- Login Container -->
+<div id="login-container" class="login-container active container">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username">
+    <input type="password" id="login-password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+    <button onclick="skipLogin()">Skip Login</button> <!-- Кнопка для пропуска логина -->
+</div>
+
+<!-- Register Container -->
+<div id="register-container" class="register-container container">
+    <h2>Register</h2>
+    <input type="text" id="register-username" placeholder="Username">
+    <input type="password" id="register-password" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+</div>
+
+<!-- Main Content -->
+<div id="content" class="content container">
+    <div id="home">
+        <div class="header">
+            <img src="C:/Users/w2/Desktop/платформа/Nov-logo-eng.png" alt="ENU" onclick="skipLogin()">
+        </div>
+        <div class="faq">
+            <h2>FAQ</h2>
+            <p><strong>Question 1:</strong> How do I register on the platform?</p>
+            <p>Answer: To register on the platform, click the "Register" button in the top right corner and fill in all the required fields.</p>
+            <p><strong>Question 2:</strong> How do I access the courses?</p>
+            <p>Answer: After registering and logging in, select the course you are interested in and click the "Enroll" button.</p>
+            <p><strong>Question 3:</strong> What courses are available on the platform?</p>
+            <p>Answer: The platform offers courses for preparing for the UNT in mathematics and computer science.</p>
+        </div>
+        <div class="course-card">
+            <a href="C:/Users/w2/Desktop/платформа/course.html">
+                <img src="C:/Users/w2/Desktop/платформа/oblozhka.jpg" alt="UNT Preparation">
+                <div class="course-title">UNT Preparation</div>
+            </a>
+        </div>
+        <div class="project-info">
+            <p>This is the graduation project of student Aimakhan Nurbol</p>
+            <p>Title of the thesis: Development of a learning platform for preparing for university entrance exams in computer science and mathematics</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
